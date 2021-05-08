@@ -1,37 +1,66 @@
-function setArrayMinMax(arr) {
-  return arr.sort((a, b) => {
+function setArrayMinMax(strs, m, n) {
+  var arr = getArr(strs, m, n);
+
+  arr = arr.sort((a, b) => {
     return a[1] + a[2] - (b[1] + b[2]);
   });
+
+  console.log(arr);
+  return arr;
 }
 
-function setArrayMaxMin(arr) {
-  return arr.sort((a, b) => {
+function setArrayMaxMin(strs, m, n) {
+  var arr = getArr(strs, m, n);
+
+  arr = arr.sort((a, b) => {
     return b[1] + b[2] - (a[1] + a[2]);
   });
+
+  console.log(arr);
+  return arr;
 }
 
-function setArrayMinZeros(arr) {
-  return arr.sort((a, b) => {
+function setArrayMinZeros(strs, m, n) {
+  var arr = getArr(strs, m, n);
+
+  arr = arr.sort((a, b) => {
     return a[1] - b[1];
   });
+  console.log(arr);
+  return arr;
 }
 
-function setArrayMinOnes(arr) {
-  return arr.sort((a, b) => {
+function setArrayMinOnes(strs, m, n) {
+  var arr = getArr(strs, m, n);
+
+  arr = arr.sort((a, b) => {
     return a[2] - b[2];
   });
+
+  console.log(arr);
+  return arr;
 }
 
-function setArrayMaxZeros(arr) {
-  return arr.sort((a, b) => {
+function setArrayMaxZeros(strs, m, n) {
+  var arr = getArr(strs, m, n);
+
+  arr = arr.sort((a, b) => {
     return b[1] - a[1];
   });
+
+  console.log(arr);
+  return arr;
 }
 
-function setArrayMaxOnes(arr) {
-  return arr.sort((a, b) => {
+function setArrayMaxOnes(strs, m, n) {
+  var arr = getArr(strs, m, n);
+
+  arr = arr.sort((a, b) => {
     return b[2] - a[2];
   });
+
+  console.log(arr);
+  return arr;
 }
 
 function getArr(strs, m, n) {
@@ -75,7 +104,6 @@ function getResult(validMinMax, m, n) {
 }
 
 var findMaxForm = function (strs, m, n) {
-  var arr = getArr(strs, m, n);
   var resMinMax = 0;
   var resMaxMin = 0;
   var resMinZeros = 0;
@@ -83,20 +111,20 @@ var findMaxForm = function (strs, m, n) {
   var resMinOnes = 0;
   var resMaxOnes = 0;
 
-  resMinMax = getResult(setArrayMinMax(arr), m, n);
-  resMinMax2 = getResult(setArrayMinMax(arr).reverse(), m, n);
-  resMaxMin = getResult(setArrayMaxMin(arr), m, n);
-  resMaxMin2 = getResult(setArrayMaxMin(arr).reverse(), m, n);
+  resMinMax = getResult(setArrayMinMax(strs, m, n), m, n);
+  resMinMax2 = getResult(setArrayMinMax(strs, m, n).reverse(), m, n);
+  resMaxMin = getResult(setArrayMaxMin(strs, m, n), m, n);
+  resMaxMin2 = getResult(setArrayMaxMin(strs, m, n).reverse(), m, n);
 
-  resMinZeros = getResult(setArrayMinZeros(arr), m, n);
-  resMinZeros2 = getResult(setArrayMinZeros(arr).reverse(), m, n);
-  resMaxZeros = getResult(setArrayMaxZeros(arr), m, n);
-  resMaxZeros2 = getResult(setArrayMaxZeros(arr).reverse(), m, n);
+  resMinZeros = getResult(setArrayMinZeros(strs, m, n), m, n);
+  resMinZeros2 = getResult(setArrayMinZeros(strs, m, n).reverse(), m, n);
+  resMaxZeros = getResult(setArrayMaxZeros(strs, m, n), m, n);
+  resMaxZeros2 = getResult(setArrayMaxZeros(strs, m, n).reverse(), m, n);
 
-  resMinOnes = getResult(setArrayMinOnes(arr), m, n);
-  resMinOnes2 = getResult(setArrayMinOnes(arr).reverse(), m, n);
-  resMaxOnes = getResult(setArrayMaxOnes(arr), m, n);
-  resMaxOnes2 = getResult(setArrayMaxOnes(arr).reverse(), m, n);
+  resMinOnes = getResult(setArrayMinOnes(strs, m, n), m, n);
+  resMinOnes2 = getResult(setArrayMinOnes(strs, m, n).reverse(), m, n);
+  resMaxOnes = getResult(setArrayMaxOnes(strs, m, n), m, n);
+  resMaxOnes2 = getResult(setArrayMaxOnes(strs, m, n).reverse(), m, n);
 
   var resArr = [
     resMinMax,
