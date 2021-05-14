@@ -10,7 +10,7 @@
  * @param {TreeNode} root
  * @return {void} Do not return anything, modify root in-place instead.
  */
-var flatten = function (root) {
+function flatten(root) {
   function helper(root) {
     if (!root) {
       return;
@@ -20,11 +20,11 @@ var flatten = function (root) {
     helper(root.left);
 
     root.left = null;
-    root.right = last;
+    root.right = lastNode;
 
     lastNode = root;
   }
 
   var lastNode = null;
   helper(root);
-};
+}
