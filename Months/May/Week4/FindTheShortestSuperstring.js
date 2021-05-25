@@ -71,6 +71,8 @@
 var shortestSuperstring = function (words) {
   let shortestStr = words.join("");
 
+  function helper(arr) {}
+
   return shortestStr;
 };
 
