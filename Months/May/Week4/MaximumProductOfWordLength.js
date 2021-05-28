@@ -7,13 +7,15 @@ var maxProduct = function (words) {
   let arr = [];
 
   for (let i = 0; i < words.length; i++) {
-    arr.push(new Set(words[i].split("")));
-  }
+    if (arr.length === i) {
+      arr.push(new Set(words[i].split("")));
+    }
 
-  //   console.log(arr);
-
-  for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < words.length; j++) {
+      if (arr.length <= j) {
+        arr.push(new Set(words[j].split("")));
+      }
+
       let set = new Set();
       if (new Set([...arr[i], ...arr[j]]).size === arr[i].size + arr[j].size) {
         let product = words[i].length * words[j].length;
