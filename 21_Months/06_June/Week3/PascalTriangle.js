@@ -14,7 +14,6 @@ var generate = function (numRows) {
       arr.push(left + right);
     }
     arr.push(1);
-    console.log(arr);
     ans.push(arr);
     i++;
   }
