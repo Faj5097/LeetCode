@@ -10,4 +10,10 @@
  * @param {number[]} preorder
  * @return {TreeNode}
  */
-var bstFromPreorder = function (preorder) {};
+var bstFromPreorder = function (preorder) {
+  if (!preorder.length) return null;
+  let node = new TreeNode(preorder[0]);
+  node.left = bstFromPreorder(preorder.filter((el) => el < preorder[0]));
+  node.right = bstFromPreorder(preorder.filter((el) => el > preorder[0]));
+  return node;
+};
